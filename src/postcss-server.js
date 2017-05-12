@@ -78,10 +78,14 @@ const main = async function main(
 
         const runner = postcss(plugins);
 
-        await runner.process(source, Object.assign({
-          from: cssFile,
-          to: cssFile, // eslint-disable-line id-length
-        }, postcssOpts));
+        try{
+          await runner.process(source, Object.assign({
+            from: cssFile,
+            to: cssFile, // eslint-disable-line id-length
+          }, postcssOpts));
+        } catch (e) {
+          //ideally, write an error somewhere unobtrusive
+        }
 
         cache = {
           hash,
