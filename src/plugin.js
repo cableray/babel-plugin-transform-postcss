@@ -53,7 +53,7 @@ const launchServer = () => {
 };
 
 export default function transformPostCSS({ types: t }: any): any {
-  const extensions = ['.css'];
+  const extensions = ['.css', '.less', '.scss', '.sass'];
 
   return {
     visitor: {
